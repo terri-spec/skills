@@ -1,0 +1,2 @@
+# skills
+Skills dynamic page
