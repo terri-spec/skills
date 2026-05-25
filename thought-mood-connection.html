@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Thoughts Shape Your Mood | What To Do! with Terri Kern</title>
+<style>
+:root {
+  --bg: #F7F4ED;
+  --navy: #12233E;
+  --navy2: #1e3a6e;
+  --teal: #3d8b76;
+  --teal-lt: #B4DACD;
+  --teal-bg: #eaf4f0;
+  --pink: #BD3A59;
+  --pink-lt: #f7e0e6;
+  --purple: #4F5DAD;
+  --purple-lt: #e8eaf8;
+  --orange: #E07B39;
+  --orange-lt: #fdf0e6;
+  --gold: #C8922A;
+  --gold-lt: #fef3de;
+  --text: #1e1e1e;
+  --muted: #6b7280;
+  --border: #e0ddd6;
+  --white: #fff;
+  --radius: 14px;
+  --shadow: 0 2px 14px rgba(0,0,0,.07);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#1A3B6E 55%,#1d4d6e 100%);padding:44px 24px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M40 10a30 30 0 1 1 0 60A30 30 0 0 1 40 10z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero-eyebrow{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-lt);margin-bottom:10px;opacity:.9;position:relative}
+.hero h1{font-size:clamp(1.7rem,5vw,2.6rem);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.15;position:relative}
+.hero h1 em{color:var(--teal-lt);font-style:normal}
+.hero-sub{margin-top:12px;color:rgba(255,255,255,.72);font-size:.93rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.65;position:relative}
+.hero-badges{display:flex;justify-content:center;gap:8px;margin-top:18px;flex-wrap:wrap;position:relative}
+.badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:4px 14px;font-size:.73rem;color:rgba(255,255,255,.85)}
+
+/* ── TABS ── */
+.tab-bar{background:#fff;border-bottom:2px solid var(--border);display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;position:sticky;top:0;z-index:30;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;padding:14px 18px;font-size:.8rem;font-weight:700;color:#8FA8B8;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .18s;white-space:nowrap;font-family:inherit;letter-spacing:.01em}
+.tab-btn:hover{color:var(--navy)}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--teal)}
+
+/* ── LAYOUT ── */
+.container{max-width:780px;margin:0 auto;padding:28px 20px 90px}
+.section{display:none}.section.active{display:block}
+
+/* ── CARDS ── */
+.card{background:#fff;border-radius:var(--radius);padding:22px 24px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card-label{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px}
+.card p{font-size:.9rem;color:var(--muted);line-height:1.75;margin-bottom:10px}
+.card p:last-child{margin-bottom:0}
+.card p strong{color:var(--text)}
+
+/* ── KEY CONCEPT ── */
+.key-box{background:linear-gradient(135deg,var(--navy),#1a3b6e);border-radius:var(--radius);padding:24px;margin-bottom:20px}
+.key-box .kl{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px}
+.key-box p{font-size:.97rem;color:#fff;line-height:1.72;font-weight:500}
+.key-box em{color:var(--teal-lt);font-style:normal;font-weight:700}
+
+/* ── FLOW DIAGRAM ── */
+.flow{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin:22px 0;row-gap:8px}
+.flow-node{background:#fff;border-radius:12px;padding:14px 18px;text-align:center;box-shadow:var(--shadow);min-width:110px;flex:0 0 auto}
+.flow-node .fn-icon{font-size:1.5rem;margin-bottom:4px}
+.flow-node .fn-label{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.flow-node .fn-title{font-size:.92rem;font-weight:700;color:var(--navy)}
+.flow-arrow{font-size:1.4rem;color:var(--teal);padding:0 6px;font-weight:700}
+.flow-highlight{border:2px solid var(--teal);background:var(--teal-bg)}
+.flow-highlight .fn-title{color:var(--teal)}
+
+/* ── INSIGHT STRIP ── */
+.insight{border-left:4px solid var(--teal);background:var(--teal-bg);border-radius:0 12px 12px 0;padding:14px 18px;margin:16px 0;font-size:.88rem;color:#2a5c4e;line-height:1.7}
+.insight strong{font-weight:800;color:var(--teal)}
+
+/* ── THOUGHT SPECTRUM ── */
+.spectrum-wrap{margin:20px 0 8px}
+.spectrum-bar{height:18px;border-radius:99px;background:linear-gradient(90deg,var(--pink) 0%,var(--orange) 30%,var(--gold) 55%,var(--teal) 80%,#2a7a63 100%);position:relative;margin-bottom:8px}
+.spectrum-labels{display:flex;justify-content:space-between;font-size:.7rem;font-weight:700;color:var(--muted)}
+.spectrum-mood{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-top:4px}
+
+/* ── PATTERN CARDS ── */
+.pattern-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:4px}
+@media(max-width:500px){.pattern-grid{grid-template-columns:1fr}}
+.pattern-card{background:#fff;border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);border-top:4px solid;cursor:pointer;transition:transform .15s,box-shadow .2s;position:relative}
+.pattern-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.pattern-card.open .pc-body{display:block}
+.pc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.pc-name{font-size:.88rem;font-weight:800;color:var(--navy);margin-bottom:3px}
+.pc-tagline{font-size:.74rem;color:var(--muted);line-height:1.4}
+.pc-chevron{font-size:.7rem;color:#a0b4c0;flex-shrink:0;margin-top:2px;transition:transform .2s}
+.pattern-card.open .pc-chevron{transform:rotate(180deg)}
+.pc-body{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+.pc-body p{font-size:.8rem;color:var(--muted);line-height:1.65;margin-bottom:8px}
+.pc-example{background:var(--bg);border-radius:8px;padding:10px 12px;font-size:.78rem;font-style:italic;color:#5a6a7a;line-height:1.55;margin-bottom:8px}
+.pc-impact{display:flex;align-items:center;gap:6px;font-size:.75rem;font-weight:700;color:var(--pink)}
+.pc-impact.positive{color:var(--teal)}
+.pc-impact-dot{width:8px;height:8px;border-radius:50%;background:var(--pink);flex-shrink:0}
+.pc-impact.positive .pc-impact-dot{background:var(--teal)}
+
+/* ── SCENARIO EXPLORER ── */
+.scenario-select{margin-bottom:20px}
+.scenario-label{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+.scenario-pills{display:flex;gap:8px;flex-wrap:wrap}
+.scenario-pill{background:#fff;border:2px solid var(--border);border-radius:99px;padding:7px 16px;font-size:.8rem;font-weight:700;color:var(--muted);cursor:pointer;transition:all .18s;font-family:inherit}
+.scenario-pill:hover{border-color:var(--teal);color:var(--teal)}
+.scenario-pill.active{background:var(--teal);border-color:var(--teal);color:#fff}
+
+.scenario-stage{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:16px}
+.scenario-situation{background:var(--navy);padding:18px 22px}
+.sit-label{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:6px}
+.sit-text{font-size:1rem;color:#fff;font-weight:600;line-height:1.5}
+.thought-choices{padding:18px 22px 4px}
+.tc-label{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);margin-bottom:12px}
+.thought-btn{width:100%;text-align:left;background:var(--bg);border:2px solid var(--border);border-radius:10px;padding:13px 16px;font-size:.86rem;font-weight:600;color:var(--text);cursor:pointer;margin-bottom:10px;font-family:inherit;transition:all .2s;line-height:1.5;display:block}
+.thought-btn:hover:not(.selected){border-color:var(--teal-lt);background:#f0f8f5}
+.thought-btn.selected-bad{border-color:var(--pink);background:var(--pink-lt);color:#8a1a35}
+.thought-btn.selected-mid{border-color:var(--gold);background:var(--gold-lt);color:#7a5010}
+.thought-btn.selected-good{border-color:var(--teal);background:var(--teal-bg);color:#1d5e48}
+.thought-btn.dim{opacity:.45}
+
+.mood-result{margin:4px 22px 18px;border-radius:10px;padding:14px 18px;display:none}
+.mood-result.show{display:block}
+.mood-result.bad{background:var(--pink-lt);border-left:4px solid var(--pink)}
+.mood-result.mid{background:var(--gold-lt);border-left:4px solid var(--gold)}
+.mood-result.good{background:var(--teal-bg);border-left:4px solid var(--teal)}
+.mr-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.mr-icon{font-size:1.3rem}
+.mr-feeling{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+.mr-feeling.bad{color:var(--pink)}
+.mr-feeling.mid{color:var(--gold)}
+.mr-feeling.good{color:var(--teal)}
+.mr-desc{font-size:.84rem;line-height:1.65}
+.mr-desc.bad{color:#8a1a35}
+.mr-desc.mid{color:#7a5010}
+.mr-desc.good{color:#1d5e48}
+.mr-reframe{margin-top:8px;padding-top:8px;border-top:1px solid rgba(0,0,0,.08);font-size:.78rem;color:var(--muted);line-height:1.6}
+.mr-reframe strong{color:var(--teal);font-weight:700}
+
+/* ── MOOD METER ── */
+.meter-wrap{margin:0 0 20px}
+.meter-bar-bg{background:var(--border);border-radius:99px;height:22px;position:relative;overflow:hidden}
+.meter-fill{height:100%;border-radius:99px;transition:width .5s ease,background .5s ease;width:50%}
+.meter-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--muted);margin-top:5px;font-weight:600}
+.meter-state{text-align:center;margin-top:8px;font-size:.9rem;font-weight:700;transition:color .4s}
+
+/* ── SELF-CHECK ── */
+.check-intro{font-size:.9rem;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.check-list{list-style:none;margin-bottom:20px}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+.check-item:last-child{border-bottom:none}
+.check-item.checked .ci-box{background:var(--teal);border-color:var(--teal)}
+.check-item.checked .ci-box::after{content:'✓';color:#fff;font-size:.75rem;font-weight:800;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.ci-box{width:22px;height:22px;border-radius:6px;border:2px solid var(--border);flex-shrink:0;position:relative;margin-top:2px;transition:all .15s}
+.ci-text{font-size:.87rem;color:var(--text);line-height:1.55}
+.ci-text .ci-tag{font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.tag-drain{background:var(--pink-lt);color:var(--pink)}
+.tag-boost{background:var(--teal-bg);color:var(--teal)}
+
+.result-panel{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:none}
+.result-panel.show{display:block}
+.result-title{font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:8px}
+.result-bar-wrap{margin:12px 0}
+.result-label-row{display:flex;justify-content:space-between;font-size:.73rem;font-weight:700;color:var(--muted);margin-bottom:4px}
+.result-bar-bg{background:var(--border);border-radius:99px;height:14px;overflow:hidden}
+.result-bar-fill{height:100%;border-radius:99px;transition:width .6s ease}
+.result-bar-fill.drain{background:var(--pink)}
+.result-bar-fill.boost{background:var(--teal)}
+.result-summary{font-size:.88rem;color:var(--muted);line-height:1.7;margin-top:14px}
+.result-summary strong{color:var(--navy);font-weight:700}
+.result-tips{margin-top:14px}
+.tip-item{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);font-size:.83rem;color:var(--muted);line-height:1.6}
+.tip-item:last-child{border-bottom:none}
+.tip-icon{flex-shrink:0;margin-top:1px;font-size:1rem}
+
+/* ── REFRAME TOOL ── */
+.reframe-steps{counter-reset:step}
+.rf-step{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
+.rf-num{width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.rf-content{flex:1}
+.rf-q{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.rf-hint{font-size:.78rem;color:var(--muted);margin-bottom:8px;line-height:1.55}
+textarea.rf-input{width:100%;border:2px solid var(--border);border-radius:10px;padding:11px 14px;font-size:.86rem;font-family:inherit;color:var(--text);resize:vertical;min-height:70px;transition:border-color .18s;background:var(--bg);line-height:1.55}
+textarea.rf-input:focus{outline:none;border-color:var(--teal);background:#fff}
+.rf-btn{margin-top:18px;display:block;width:100%;background:var(--teal);color:#fff;border:none;border-radius:10px;padding:13px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;transition:background .18s;letter-spacing:.01em}
+.rf-btn:hover{background:#2d7564}
+.rf-output{display:none;margin-top:16px;background:var(--teal-bg);border-radius:12px;padding:20px;border-left:4px solid var(--teal)}
+.rf-output.show{display:block}
+.rf-output h4{font-size:.85rem;font-weight:800;color:var(--teal);margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em}
+.rf-output-item{display:flex;gap:8px;align-items:flex-start;font-size:.84rem;color:#2a5c4e;line-height:1.65;margin-bottom:6px}
+.rf-output-item:last-child{margin-bottom:0}
+.rf-output-icon{flex-shrink:0;margin-top:2px}
+
+/* ── RESET LINK ── */
+.reset-link{display:inline-block;margin-top:14px;font-size:.78rem;color:var(--teal);cursor:pointer;text-decoration:underline;font-weight:600;background:none;border:none;font-family:inherit;padding:0}
+.reset-link:hover{color:#2d7564}
+
+/* ── SECTION HEADERS ── */
+.section-title{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:6px}
+.section-desc{font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:20px}
+
+/* ── STAT CHIPS ── */
+.stat-row{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.stat{background:#fff;border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);flex:1;min-width:120px;text-align:center}
+.stat-num{font-size:1.5rem;font-weight:800;color:var(--navy);line-height:1}
+.stat-label{font-size:.7rem;color:var(--muted);margin-top:3px;font-weight:600}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--border);margin:22px 0}
+
+/* ── CALLOUT ── */
+.callout{border-radius:12px;padding:16px 18px;margin:14px 0;font-size:.86rem;line-height:1.7}
+.callout.teal{background:var(--teal-bg);border-left:4px solid var(--teal);color:#2a5c4e}
+.callout.pink{background:var(--pink-lt);border-left:4px solid var(--pink);color:#8a1a35}
+.callout.navy{background:#eef2f8;border-left:4px solid var(--navy);color:#1a2c4a}
+.callout strong{font-weight:800}
+
+/* ── UTILITY ── */
+.mt8{margin-top:8px}.mt16{margin-top:16px}.mb8{margin-bottom:8px}.mb16{margin-bottom:16px}
+.bold{font-weight:700}.teal-txt{color:var(--teal)}.navy-txt{color:var(--navy)}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">What To Do! with Terri Kern</div>
+  <h1>Your Thoughts <em>Shape</em> Your Mood</h1>
+  <p class="hero-sub">The quality of your thinking has a direct and measurable effect on how you feel. Learn the connection — then use it.</p>
+  <div class="hero-badges">
+    <span class="badge">Interactive</span>
+    <span class="badge">Self-Awareness</span>
+    <span class="badge">Emotional Regulation</span>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('learn',this)">The Connection</button>
+  <button class="tab-btn" onclick="showTab('patterns',this)">Thought Patterns</button>
+  <button class="tab-btn" onclick="showTab('explorer',this)">See It Live</button>
+  <button class="tab-btn" onclick="showTab('check',this)">Check Yours</button>
+  <button class="tab-btn" onclick="showTab('reframe',this)">Reframe It</button>
+</div>
+
+<div class="container">
+
+  <!-- ════════════════════════════════════════════
+       TAB 1: THE CONNECTION
+  ═══════════════════════════════════════════════ -->
+  <div id="tab-learn" class="section active">
+
+    <div class="key-box">
+      <div class="kl">The Core Idea</div>
+      <p>It isn't what happens to you that determines how you feel. It's <em>what you think about what happens</em>. Events are neutral — your mind assigns meaning, and that meaning creates your emotional experience.</p>
+    </div>
+
+    <!-- FLOW DIAGRAM -->
+    <div class="card">
+      <div class="card-label navy-txt">How Emotion Is Actually Created</div>
+      <div class="flow">
+        <div class="flow-node">
+          <div class="fn-icon">🌍</div>
+          <div class="fn-label">Step 1</div>
+          <div class="fn-title">Something Happens</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node flow-highlight">
+          <div class="fn-icon">💭</div>
+          <div class="fn-label">Step 2 — The Key</div>
+          <div class="fn-title">You Think About It</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="fn-icon">❤️</div>
+          <div class="fn-label">Step 3</div>
+          <div class="fn-title">You Feel Something</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="fn-icon">☀️</div>
+          <div class="fn-label">Result</div>
+          <div class="fn-title">Your Overall Mood</div>
+        </div>
+      </div>
+      <div class="insight">
+        <strong>The leverage point is Step 2.</strong> You may not control what happens — but you have more influence over your thinking than you've probably been taught. That's where emotional regulation actually starts.
+      </div>
+    </div>
+
+    <!-- THE PROOF -->
+    <div class="card">
+      <div class="card-label navy-txt">A Simple Proof</div>
+      <p>Picture two people stuck in the same traffic jam, running 20 minutes late. Same event. But very different inner experiences:</p>
+      <div class="callout pink" style="margin-top:10px">
+        <strong>Person A thinks:</strong> "This always happens to me. I'm going to get fired. I can't do anything right. This whole day is ruined."<br>
+        <strong style="color:var(--pink)">Feeling: Panic, helplessness, dread</strong>
+      </div>
+      <div class="callout teal">
+        <strong>Person B thinks:</strong> "This is frustrating. I'll text ahead and let them know. I'll take a different route tomorrow."<br>
+        <strong>Feeling: Mild irritation, still in control</strong>
+      </div>
+      <p style="margin-top:10px">Same situation. The thought is what made the difference — not the traffic.</p>
+    </div>
+
+    <!-- THOUGHT QUALITY + MOOD -->
+    <div class="card">
+      <div class="card-label navy-txt">The Thought Quality Spectrum</div>
+      <p style="margin-bottom:14px">Think of your thinking as having a quality level that directly dials your mood up or down.</p>
+      <div class="spectrum-wrap">
+        <div class="spectrum-bar"></div>
+        <div class="spectrum-labels">
+          <span style="color:var(--pink)">Distorted</span>
+          <span style="color:var(--orange)">Biased</span>
+          <span style="color:var(--gold)">Neutral</span>
+          <span style="color:var(--teal)">Balanced</span>
+          <span style="color:#2a7a63">Clear</span>
+        </div>
+        <div class="spectrum-mood" style="margin-top:8px">
+          <span>⬇ Worse mood</span>
+          <span>Steady mood ⬆</span>
+        </div>
+      </div>
+      <div class="insight mt8">Distorted thinking doesn't feel like distortion — it feels like truth. That's what makes it so powerful, and why learning to notice it changes everything.</div>
+    </div>
+
+    <!-- STAT ROW -->
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">~6,000</div>
+        <div class="stat-label">thoughts per day on average</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">80%</div>
+        <div class="stat-label">tend to be negative by default</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">95%</div>
+        <div class="stat-label">are repeats from the day before</div>
+      </div>
+    </div>
+    <p class="card-label" style="text-align:center;color:var(--muted);margin-top:0">Your thought habits are running in the background all day — shaping your mood without your awareness.</p>
+
+    <div class="callout navy mt16">
+      <strong>What this means for you:</strong> You don't have to fix every thought. You just need to start noticing which ones are pulling your mood down — and learn to work with them differently. That's exactly what the other tabs in this tool are for.
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       TAB 2: THOUGHT PATTERNS
+  ═══════════════════════════════════════════════ -->
+  <div id="tab-patterns" class="section">
+
+    <p class="section-title">Common Thought Patterns & Their Mood Impact</p>
+    <p class="section-desc">Certain thinking styles reliably drain your mood. Others support it. Tap each card to learn more — and see if you recognize yourself.</p>
+
+    <div class="card-label" style="margin-bottom:10px;color:var(--pink)">🔻 Mood-Draining Patterns</div>
+    <div class="pattern-grid">
+
+      <div class="pattern-card" style="border-color:var(--pink)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Catastrophizing</div>
+            <div class="pc-tagline">Jumping to the worst possible outcome</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>Your mind skips past likely outcomes and lands on the worst-case scenario — then treats it as certain.</p>
+          <div class="pc-example">"I made one mistake at work. I'm going to get fired. I'll never find another job. I'll lose everything."</div>
+          <div class="pc-impact">
+            <div class="pc-impact-dot"></div>
+            Triggers anxiety, dread, helplessness
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="border-color:var(--pink)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">All-or-Nothing</div>
+            <div class="pc-tagline">Everything is perfect or totally ruined</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>You see situations in binary extremes — perfect success or complete failure, with no middle ground allowed.</p>
+          <div class="pc-example">"I didn't follow through on my plan perfectly. The whole week is a failure. I might as well give up."</div>
+          <div class="pc-impact">
+            <div class="pc-impact-dot"></div>
+            Triggers shame, giving up, low motivation
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="border-color:var(--pink)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Mind Reading</div>
+            <div class="pc-tagline">Assuming you know what others think</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>You treat your assumptions about other people's thoughts, feelings, and judgments as facts — without checking.</p>
+          <div class="pc-example">"She didn't text back. She must be mad at me. Everyone at that party thought I was awkward."</div>
+          <div class="pc-impact">
+            <div class="pc-impact-dot"></div>
+            Triggers social anxiety, withdrawal, shame
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="border-color:var(--pink)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Personalization</div>
+            <div class="pc-tagline">Taking the blame for everything</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>You assume responsibility for events outside your control, making yourself the cause of problems that involve many factors.</p>
+          <div class="pc-example">"My friend is in a bad mood. I must have done something. My kid is struggling — that's my fault."</div>
+          <div class="pc-impact">
+            <div class="pc-impact-dot"></div>
+            Triggers guilt, excessive responsibility, exhaustion
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="border-color:var(--orange)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Overgeneralization</div>
+            <div class="pc-tagline">One event becomes a permanent pattern</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>A single negative event becomes evidence of a never-ending pattern of defeat. Words like "always" and "never" are a signal.</p>
+          <div class="pc-example">"I always mess things up. This never works out for me. Things never go right when I'm involved."</div>
+          <div class="pc-impact">
+            <div class="pc-impact-dot" style="background:var(--orange)"></div>
+            <span style="color:var(--orange)">Triggers hopelessness, low self-worth, defeat</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="border-color:var(--orange)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Emotional Reasoning</div>
+            <div class="pc-tagline">Feelings as proof of facts</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>You treat how you feel as evidence of what is true — not recognizing that feelings are data, not facts.</p>
+          <div class="pc-example">"I feel stupid, so I must be stupid. I feel like a burden, so I must be one. I feel scared, so it must be dangerous."</div>
+          <div class="pc-impact">
+            <div class="pc-impact-dot" style="background:var(--orange)"></div>
+            <span style="color:var(--orange)">Reinforces distorted beliefs, amplifies distress</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="border-color:var(--orange)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Should Statements</div>
+            <div class="pc-tagline">Rigid rules about how things must be</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>You hold yourself or others to inflexible rules — and feel guilt, anger, or resentment when those rules are broken.</p>
+          <div class="pc-example">"I should be further along by now. She shouldn't have said that. I should handle this better."</div>
+          <div class="pc-impact">
+            <div class="pc-impact-dot" style="background:var(--orange)"></div>
+            <span style="color:var(--orange)">Triggers guilt (self-directed) or resentment (other-directed)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="border-color:var(--orange)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Mental Filtering</div>
+            <div class="pc-tagline">Focusing only on what went wrong</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>You fixate on a single negative detail while filtering out the broader positive context — like a drop of ink clouding an entire glass of water.</p>
+          <div class="pc-example">"Nine people loved my presentation, but one person seemed uninterested. The whole thing must have been bad."</div>
+          <div class="pc-impact">
+            <div class="pc-impact-dot" style="background:var(--orange)"></div>
+            <span style="color:var(--orange)">Drains satisfaction, fuels self-criticism</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="divider">
+    <div class="card-label" style="margin-bottom:10px;color:var(--teal)">🔺 Mood-Supporting Patterns</div>
+    <div class="pattern-grid">
+
+      <div class="pattern-card" style="border-color:var(--teal)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Balanced Thinking</div>
+            <div class="pc-tagline">Holding what's hard AND what's true</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>You acknowledge difficulty without catastrophizing it. You hold both the challenge and the evidence that you can cope.</p>
+          <div class="pc-example">"This is hard and I'm frustrated. I've gotten through hard things before. I'll figure this out."</div>
+          <div class="pc-impact positive">
+            <div class="pc-impact-dot"></div>
+            Supports resilience, steadiness, perspective
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="border-color:var(--teal)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Fact-Based Thinking</div>
+            <div class="pc-tagline">Separating what happened from the story</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>You distinguish between observable facts and your interpretation of them — and consciously work with both.</p>
+          <div class="pc-example">"What actually happened: she didn't text back. What I'm adding to it: she's upset with me. I don't actually know that."</div>
+          <div class="pc-impact positive">
+            <div class="pc-impact-dot"></div>
+            Reduces anxiety, keeps options open
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="border-color:var(--teal)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Curious Thinking</div>
+            <div class="pc-tagline">Wondering instead of concluding</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>Instead of landing on a negative conclusion, you stay open and ask questions. Curiosity is incompatible with dread.</p>
+          <div class="pc-example">"I wonder what's going on with her. That's interesting — why did that bother me so much? What might be happening here?"</div>
+          <div class="pc-impact positive">
+            <div class="pc-impact-dot"></div>
+            Reduces reactivity, opens possibilities
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="border-color:var(--teal)" onclick="togglePattern(this)">
+        <div class="pc-top">
+          <div>
+            <div class="pc-name">Self-Compassionate Thinking</div>
+            <div class="pc-tagline">Treating yourself like a good friend</div>
+          </div>
+          <div class="pc-chevron">▾</div>
+        </div>
+        <div class="pc-body">
+          <p>You respond to your own struggles with the same warmth and perspective you'd offer someone you care about — instead of harsh self-judgment.</p>
+          <div class="pc-example">"I made a mistake. That's human. What do I actually need right now? What would I tell a friend in this situation?"</div>
+          <div class="pc-impact positive">
+            <div class="pc-impact-dot"></div>
+            Builds emotional safety, reduces shame
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout navy mt16">
+      <strong>Important:</strong> The goal isn't to force positive thinking. It's to notice when your thinking is distorted — and gently move it toward something more accurate and balanced. Real thoughts, not happy ones.
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       TAB 3: SEE IT LIVE
+  ═══════════════════════════════════════════════ -->
+  <div id="tab-explorer" class="section">
+
+    <p class="section-title">The Same Situation — Different Thoughts</p>
+    <p class="section-desc">Pick a scenario below, then choose a thought. Watch how different thinking about the exact same event produces completely different feelings.</p>
+
+    <div class="scenario-select">
+      <div class="scenario-label">Choose a situation</div>
+      <div class="scenario-pills">
+        <button class="scenario-pill active" onclick="loadScenario(0,this)">You didn't sleep well</button>
+        <button class="scenario-pill" onclick="loadScenario(1,this)">A friend canceled plans</button>
+        <button class="scenario-pill" onclick="loadScenario(2,this)">You made a mistake</button>
+        <button class="scenario-pill" onclick="loadScenario(3,this)">You got critical feedback</button>
+      </div>
+    </div>
+
+    <div class="scenario-stage" id="scenario-stage">
+      <div class="scenario-situation">
+        <div class="sit-label">The Situation</div>
+        <div class="sit-text" id="sit-text">Loading...</div>
+      </div>
+      <div class="thought-choices">
+        <div class="tc-label">Choose a thought — and see how you'd feel</div>
+        <div id="thought-options"></div>
+      </div>
+      <div class="mood-result" id="mood-result">
+        <div class="mr-top">
+          <div class="mr-icon" id="mr-icon"></div>
+          <div class="mr-feeling" id="mr-feeling"></div>
+        </div>
+        <div class="mr-desc" id="mr-desc"></div>
+        <div class="mr-reframe" id="mr-reframe"></div>
+      </div>
+    </div>
+
+    <div class="card mt16">
+      <div class="card-label navy-txt">What Are You Noticing?</div>
+      <p>The situation itself didn't change — only the thought did. And the feeling changed completely. This is the thought-mood connection in action.</p>
+      <p>You probably recognize some of these thought patterns from your own life. Most people do. The question isn't whether you have them — it's whether you notice them when they happen.</p>
+      <div class="callout teal" style="margin-top:10px">
+        <strong>Try this:</strong> Think of a situation that recently bothered you. Ask yourself: what was the thought behind the feeling? Not just "I felt bad" — but what did your mind tell you in that moment?
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       TAB 4: CHECK YOURS
+  ═══════════════════════════════════════════════ -->
+  <div id="tab-check" class="section">
+
+    <p class="section-title">Check Your Thinking Habits</p>
+    <p class="section-desc">Take a moment to look at your own thinking patterns honestly. Check any thought habit that feels familiar to you — even if it's uncomfortable to admit.</p>
+
+    <div id="check-form">
+      <ul class="check-list" id="check-list">
+        <li class="check-item" onclick="toggleCheck(this)" data-type="drain" data-label="Catastrophizing">
+          <div class="ci-box"></div>
+          <div class="ci-text">I often imagine worst-case outcomes <span class="ci-tag tag-drain">drains mood</span></div>
+        </li>
+        <li class="check-item" onclick="toggleCheck(this)" data-type="drain" data-label="All-or-Nothing Thinking">
+          <div class="ci-box"></div>
+          <div class="ci-text">I tend to see things as all good or all bad <span class="ci-tag tag-drain">drains mood</span></div>
+        </li>
+        <li class="check-item" onclick="toggleCheck(this)" data-type="drain" data-label="Mind Reading">
+          <div class="ci-box"></div>
+          <div class="ci-text">I assume I know what others think of me <span class="ci-tag tag-drain">drains mood</span></div>
+        </li>
+        <li class="check-item" onclick="toggleCheck(this)" data-type="drain" data-label="Overgeneralization">
+          <div class="ci-box"></div>
+          <div class="ci-text">I use words like "always" and "never" about myself <span class="ci-tag tag-drain">drains mood</span></div>
+        </li>
+        <li class="check-item" onclick="toggleCheck(this)" data-type="drain" data-label="Emotional Reasoning">
+          <div class="ci-box"></div>
+          <div class="ci-text">I treat my feelings as proof of what's true <span class="ci-tag tag-drain">drains mood</span></div>
+        </li>
+        <li class="check-item" onclick="toggleCheck(this)" data-type="drain" data-label="Personalization">
+          <div class="ci-box"></div>
+          <div class="ci-text">I take responsibility for things outside my control <span class="ci-tag tag-drain">drains mood</span></div>
+        </li>
+        <li class="check-item" onclick="toggleCheck(this)" data-type="drain" data-label="Should Statements">
+          <div class="ci-box"></div>
+          <div class="ci-text">I have strong rules about how I and others should behave <span class="ci-tag tag-drain">drains mood</span></div>
+        </li>
+        <li class="check-item" onclick="toggleCheck(this)" data-type="drain" data-label="Mental Filtering">
+          <div class="ci-box"></div>
+          <div class="ci-text">I tend to focus on what went wrong more than what went right <span class="ci-tag tag-drain">drains mood</span></div>
+        </li>
+        <li class="check-item" onclick="toggleCheck(this)" data-type="boost" data-label="Balanced Thinking">
+          <div class="ci-box"></div>
+          <div class="ci-text">I can hold difficulty without making it mean everything <span class="ci-tag tag-boost">supports mood</span></div>
+        </li>
+        <li class="check-item" onclick="toggleCheck(this)" data-type="boost" data-label="Fact-Checking My Stories">
+          <div class="ci-box"></div>
+          <div class="ci-text">I notice when I'm adding a story to what happened <span class="ci-tag tag-boost">supports mood</span></div>
+        </li>
+        <li class="check-item" onclick="toggleCheck(this)" data-type="boost" data-label="Self-Compassion">
+          <div class="ci-box"></div>
+          <div class="ci-text">I can be kind to myself when I make mistakes <span class="ci-tag tag-boost">supports mood</span></div>
+        </li>
+        <li class="check-item" onclick="toggleCheck(this)" data-type="boost" data-label="Staying Curious">
+          <div class="ci-box"></div>
+          <div class="ci-text">I can wonder about a situation instead of immediately concluding <span class="ci-tag tag-boost">supports mood</span></div>
+        </li>
+      </ul>
+
+      <button class="rf-btn" onclick="showCheckResult()" id="check-submit-btn" style="opacity:.5" disabled>See My Results →</button>
+    </div>
+
+    <div class="result-panel" id="result-panel">
+      <div class="result-title" id="result-title">Your Thinking Snapshot</div>
+      <div id="result-bars"></div>
+      <div class="result-summary" id="result-summary"></div>
+      <div class="result-tips" id="result-tips"></div>
+      <button class="reset-link" onclick="resetCheck()">← Start over</button>
+    </div>
+
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       TAB 5: REFRAME IT
+  ═══════════════════════════════════════════════ -->
+  <div id="tab-reframe" class="section">
+
+    <p class="section-title">Reframe a Real Thought</p>
+    <p class="section-desc">This tool walks you through examining a thought that's been affecting your mood. Take your time — there's no right answer, just a more workable one.</p>
+
+    <div class="card" id="reframe-card">
+      <div class="reframe-steps">
+
+        <div class="rf-step">
+          <div class="rf-num">1</div>
+          <div class="rf-content">
+            <div class="rf-q">What is the thought that's been affecting your mood?</div>
+            <div class="rf-hint">Write it exactly as it sounds in your head — not how you think it "should" sound.</div>
+            <textarea class="rf-input" id="rf1" placeholder="e.g. I always mess things up. Nobody really cares about me. I'm falling behind and I'll never catch up."></textarea>
+          </div>
+        </div>
+
+        <div class="rf-step">
+          <div class="rf-num">2</div>
+          <div class="rf-content">
+            <div class="rf-q">What feeling does this thought create?</div>
+            <div class="rf-hint">Name the emotion(s). Try to be more specific than just "bad" — anxious, ashamed, hopeless, defeated?</div>
+            <textarea class="rf-input" id="rf2" placeholder="e.g. Anxious and a little hopeless. Like there's no point."></textarea>
+          </div>
+        </div>
+
+        <div class="rf-step">
+          <div class="rf-num">3</div>
+          <div class="rf-content">
+            <div class="rf-q">What are the actual facts of the situation — without interpretation?</div>
+            <div class="rf-hint">Just what's objectively observable. No "always," no "never," no reading minds — only what you could write on a report.</div>
+            <textarea class="rf-input" id="rf3" placeholder="e.g. I made a mistake on the project. My friend hasn't texted back in two days."></textarea>
+          </div>
+        </div>
+
+        <div class="rf-step">
+          <div class="rf-num">4</div>
+          <div class="rf-content">
+            <div class="rf-q">What would you say to a close friend who had this exact thought?</div>
+            <div class="rf-hint">Same situation, same thought — but it's your friend, not you. What would you actually tell them?</div>
+            <textarea class="rf-input" id="rf4" placeholder="e.g. I'd tell them one mistake doesn't define them. That they've handled hard things before. That they're not alone."></textarea>
+          </div>
+        </div>
+
+        <div class="rf-step">
+          <div class="rf-num">5</div>
+          <div class="rf-content">
+            <div class="rf-q">What's a more accurate and balanced version of the original thought?</div>
+            <div class="rf-hint">Not forced positivity — just more complete and fair. Acknowledge the hard part AND what's also true.</div>
+            <textarea class="rf-input" id="rf5" placeholder="e.g. This is hard and I'm frustrated. I've gotten through hard things before. I don't know for certain what others are thinking."></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="rf-btn" onclick="showReframe()">See What Shifted →</button>
+    </div>
+
+    <div class="rf-output" id="rf-output">
+      <h4>What You Did Just Now</h4>
+      <div class="rf-output-item"><span class="rf-output-icon">🔍</span><span>You named the thought instead of living inside it. That creates distance — and distance creates choice.</span></div>
+      <div class="rf-output-item"><span class="rf-output-icon">📋</span><span>You separated facts from interpretation. That's one of the most powerful emotional regulation moves there is.</span></div>
+      <div class="rf-output-item"><span class="rf-output-icon">💛</span><span>You applied the same care to yourself that you'd give to someone you love. That's self-compassion in action — not a feeling, a practice.</span></div>
+      <div class="rf-output-item" id="rf-rebalanced" style="display:none"><span class="rf-output-icon">⚖️</span><span id="rf-rebalanced-text"></span></div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(61,139,118,.2)">
+        <div style="font-size:.8rem;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Your Balanced Thought</div>
+        <div id="rf-balanced-display" style="font-size:.95rem;color:#1d5e48;line-height:1.7;font-style:italic;font-weight:500"></div>
+      </div>
+      <button class="reset-link" onclick="resetReframe()">← Work through another thought</button>
+    </div>
+
+    <div class="callout navy mt16">
+      <strong>Reminder:</strong> This is a practice, not a one-time fix. The more you walk thoughts through this process, the more naturally your mind will start doing it on its own. That's what emotional regulation skill-building actually looks like.
+    </div>
+
+  </div>
+
+</div><!-- /container -->
+
+<script>
+/* ══════════════ TAB SWITCHING ══════════════ */
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+/* ══════════════ PATTERN CARDS ══════════════ */
+function togglePattern(card) {
+  card.classList.toggle('open');
+}
+
+/* ══════════════ SCENARIO EXPLORER ══════════════ */
+const scenarios = [
+  {
+    situation: "You barely slept last night. You're tired, groggy, and you have a full day ahead.",
+    thoughts: [
+      {
+        text: "I'm going to be useless today. I can't function like this. This ruins everything.",
+        quality: "bad",
+        icon: "😟",
+        feeling: "Anxious + Defeated",
+        desc: "This thought catastrophizes one bad night into total failure. The mind treats tiredness as proof of incompetence — and your mood responds with dread before the day has even started.",
+        reframe: "💡 A more accurate thought: \"I'm tired. It'll be a harder day. I've managed tired days before and I'll get through this one.\""
+      },
+      {
+        text: "I'm a little foggy but I'll manage. I'll take it one thing at a time and rest tonight.",
+        quality: "good",
+        icon: "😌",
+        feeling: "Calm + Capable",
+        desc: "This thought acknowledges the reality (tired) without catastrophizing it. It gives your mind a workable plan instead of a threat — and your nervous system responds with steadiness.",
+        reframe: "✓ This thought is balanced, accurate, and action-oriented. It keeps your mood functional."
+      },
+      {
+        text: "I shouldn't have stayed up. I always do this. I have no self-control.",
+        quality: "mid",
+        icon: "😔",
+        feeling: "Guilty + Ashamed",
+        desc: "This thought takes a single night and turns it into evidence of a character flaw. \"Always\" is doing heavy lifting here — and it pulls your mood toward shame and self-criticism.",
+        reframe: "💡 What's actually true: you stayed up late once. That's not a pattern unless you decide it is."
+      }
+    ]
+  },
+  {
+    situation: "A close friend just canceled your plans at the last minute. You were looking forward to seeing them.",
+    thoughts: [
+      {
+        text: "She doesn't actually care about me. I'm clearly not a priority to anyone. I should stop trying.",
+        quality: "bad",
+        icon: "💔",
+        feeling: "Rejected + Hopeless",
+        desc: "Mind reading + overgeneralization in one thought. You've gone from one canceled plan to a global conclusion about your worth and your relationships — with no evidence beyond a text message.",
+        reframe: "💡 What you know: plans were canceled. What you added: she doesn't care about you. Those aren't the same thing."
+      },
+      {
+        text: "That's disappointing. I'll reach out and see if we can reschedule. She's probably dealing with something.",
+        quality: "good",
+        icon: "😊",
+        feeling: "Briefly Disappointed → Still Connected",
+        desc: "Disappointment is real and valid — this thought doesn't deny it. But it stays in the facts, assumes good faith, and keeps the relationship open. Mood dips briefly and recovers.",
+        reframe: "✓ Disappointment without catastrophe. This is emotional regulation in a single thought."
+      },
+      {
+        text: "She should have given me more notice. People are so inconsiderate. I'm always the one who gets canceled on.",
+        quality: "mid",
+        icon: "😠",
+        feeling: "Irritated + Resentful",
+        desc: "Should statements + overgeneralization. Your frustration is understandable, but \"always\" makes it bigger than this moment — and resentment compounds over time.",
+        reframe: "💡 More useful: \"I wish I'd had more notice. That's a fair expectation. I can share that with her when we talk.\""
+      }
+    ]
+  },
+  {
+    situation: "You made an error on something important — something other people noticed.",
+    thoughts: [
+      {
+        text: "I'm so stupid. I can't believe I did that. Everyone thinks I'm incompetent now.",
+        quality: "bad",
+        icon: "😣",
+        feeling: "Shame + Humiliation",
+        desc: "A single error becomes evidence of a permanent defect. \"Everyone thinks\" is mind reading with no data. Shame spirals make recovery harder — they keep you focused on what you are instead of what you can do.",
+        reframe: "💡 One mistake says nothing about intelligence. It says you're human. That's it."
+      },
+      {
+        text: "That was a mistake. It happens. What do I need to do to fix it — or move forward from it?",
+        quality: "good",
+        icon: "💪",
+        feeling: "Momentarily Embarrassed → Focused",
+        desc: "Acknowledges the mistake without assigning a character verdict. Embarrassment is natural and brief when the thought doesn't add shame fuel. The mind moves to action instead of spiraling inward.",
+        reframe: "✓ This thought separates what happened from who you are. That distinction is everything."
+      },
+      {
+        text: "I should have caught that. I need to be more careful. I can't let this happen again.",
+        quality: "mid",
+        icon: "😬",
+        feeling: "Guilty + Pressured",
+        desc: "Should statements and hyper-vigilance. While it's not catastrophizing, the pressure it creates becomes its own drain — making you tighter and more anxious going forward, not more careful.",
+        reframe: "💡 Accountability without self-punishment sounds like: \"I made a mistake. I'll learn what I can from it and do better.\""
+      }
+    ]
+  },
+  {
+    situation: "Someone gave you critical feedback on work you put real effort into.",
+    thoughts: [
+      {
+        text: "They hated it. All that work for nothing. I'm never going to get this right. Why do I even try?",
+        quality: "bad",
+        icon: "😞",
+        feeling: "Deflated + Hopeless",
+        desc: "Critical feedback gets amplified to total rejection, which becomes evidence of permanent failure. All-or-nothing thinking erases the effort and the learning — leaving only defeat.",
+        reframe: "💡 Feedback is information, not a verdict. What if this is the thing that makes the next version better?"
+      },
+      {
+        text: "That stings a little. But there's probably something useful in there. Let me look at it when I'm ready.",
+        quality: "good",
+        icon: "🙂",
+        feeling: "Briefly Stung → Grounded",
+        desc: "Honest about the discomfort — doesn't pretend feedback doesn't sting. But it doesn't catastrophize, doesn't collapse the whole effort, and allows for learning. Mood recovers quickly.",
+        reframe: "✓ Acknowledging discomfort while staying open to growth — that's emotional flexibility."
+      },
+      {
+        text: "They didn't understand what I was going for. They're wrong. I know what I'm doing.",
+        quality: "mid",
+        icon: "😒",
+        feeling: "Defensive + Closed Off",
+        desc: "Protects the ego short-term but closes the door to growth. Defensiveness feels like strength but often signals that the feedback landed somewhere tender — worth exploring, not dismissing.",
+        reframe: "💡 You can disagree with feedback AND still ask: is there even 10% of truth here worth considering?"
+      }
+    ]
+  }
+];
+
+let currentScenario = 0;
+
+function loadScenario(index, pill) {
+  currentScenario = index;
+  document.querySelectorAll('.scenario-pill').forEach(p => p.classList.remove('active'));
+  pill.classList.add('active');
+  const s = scenarios[index];
+  document.getElementById('sit-text').textContent = s.situation;
+  const opts = document.getElementById('thought-options');
+  opts.innerHTML = '';
+  s.thoughts.forEach((t, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'thought-btn';
+    btn.textContent = '💭 ' + t.text;
+    btn.onclick = () => selectThought(i);
+    opts.appendChild(btn);
+  });
+  const mr = document.getElementById('mood-result');
+  mr.className = 'mood-result';
+  mr.style.display = 'none';
+}
+
+function selectThought(idx) {
+  const s = scenarios[currentScenario];
+  const t = s.thoughts[idx];
+  const btns = document.querySelectorAll('.thought-btn');
+  btns.forEach((b, i) => {
+    b.className = 'thought-btn';
+    if (i === idx) {
+      b.classList.add('selected-' + t.quality);
+    } else {
+      b.classList.add('dim');
+    }
+  });
+  const mr = document.getElementById('mood-result');
+  mr.className = 'mood-result show ' + t.quality;
+  mr.style.display = 'block';
+  document.getElementById('mr-icon').textContent = t.icon;
+  document.getElementById('mr-feeling').className = 'mr-feeling ' + t.quality;
+  document.getElementById('mr-feeling').textContent = t.feeling;
+  document.getElementById('mr-desc').className = 'mr-desc ' + t.quality;
+  document.getElementById('mr-desc').textContent = t.desc;
+  document.getElementById('mr-reframe').innerHTML = t.reframe;
+
+  // reset after delay to show all options again
+  setTimeout(() => {
+    const resetBtn = document.createElement('button');
+    resetBtn.className = 'reset-link';
+    resetBtn.textContent = '← Try a different thought';
+    resetBtn.onclick = () => {
+      btns.forEach(b => { b.className = 'thought-btn'; });
+      mr.className = 'mood-result';
+      mr.style.display = 'none';
+    };
+    if (!mr.querySelector('.reset-link')) mr.appendChild(resetBtn);
+  }, 400);
+}
+
+// Init first scenario
+loadScenario(0, document.querySelector('.scenario-pill'));
+
+/* ══════════════ CHECK YOUR THINKING ══════════════ */
+function toggleCheck(item) {
+  item.classList.toggle('checked');
+  const anyChecked = document.querySelectorAll('.check-item.checked').length > 0;
+  const btn = document.getElementById('check-submit-btn');
+  btn.disabled = !anyChecked;
+  btn.style.opacity = anyChecked ? '1' : '.5';
+}
+
+function showCheckResult() {
+  const items = document.querySelectorAll('.check-item.checked');
+  let drain = 0, boost = 0, drainLabels = [], boostLabels = [];
+  items.forEach(item => {
+    if (item.dataset.type === 'drain') { drain++; drainLabels.push(item.dataset.label); }
+    else { boost++; boostLabels.push(item.dataset.label); }
+  });
+  const total = drain + boost;
+  const drainPct = Math.round((drain / Math.max(total, 1)) * 100);
+  const boostPct = 100 - drainPct;
+
+  document.getElementById('check-form').style.display = 'none';
+  const rp = document.getElementById('result-panel');
+  rp.classList.add('show');
+
+  document.getElementById('result-title').textContent = drain > boost
+    ? 'Your thinking is currently draining your mood more than supporting it.'
+    : boost > drain
+    ? 'You have some real thinking strengths — and some areas to work with.'
+    : 'Your thinking is mixed — both patterns are active.';
+
+  let barsHTML = '';
+  if (drain > 0) {
+    barsHTML += `<div class="result-bar-wrap">
+      <div class="result-label-row"><span>Mood-Draining Patterns</span><span>${drain} identified</span></div>
+      <div class="result-bar-bg"><div class="result-bar-fill drain" style="width:${Math.max(drainPct,8)}%"></div></div>
+    </div>`;
+  }
+  if (boost > 0) {
+    barsHTML += `<div class="result-bar-wrap">
+      <div class="result-label-row"><span>Mood-Supporting Patterns</span><span>${boost} identified</span></div>
+      <div class="result-bar-bg"><div class="result-bar-fill boost" style="width:${Math.max(boostPct,8)}%"></div></div>
+    </div>`;
+  }
+  document.getElementById('result-bars').innerHTML = barsHTML;
+
+  let summary = '';
+  if (drain === 0 && boost > 0) {
+    summary = `<strong>You're building real thinking strengths.</strong> The patterns you checked — ${boostLabels.join(', ')} — are the foundation of emotional steadiness. Keep practicing them deliberately.`;
+  } else if (boost === 0 && drain > 0) {
+    summary = `<strong>You recognized ${drain} mood-draining pattern${drain > 1 ? 's' : ''}.</strong> That takes honesty — and honesty is the first step. The good news: these patterns are changeable. You don't have to overhaul everything at once. Start with the one that shows up most often.`;
+  } else {
+    summary = `<strong>You're working with both kinds of thinking.</strong> Your draining patterns — ${drainLabels.join(', ')} — are worth focusing on. Your supporting patterns — ${boostLabels.join(', ')} — are real strengths to build from. Every time you notice a draining thought, you can use what's already working to challenge it.`;
+  }
+  document.getElementById('result-summary').innerHTML = summary;
+
+  let tips = '<div style="margin-top:12px;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px">Your Next Steps</div>';
+  if (drain > 0) tips += `<div class="tip-item"><span class="tip-icon">🎯</span><span><strong>Pick ONE pattern to work with this week</strong> — not all of them. Notice every time it shows up. Just noticing changes the relationship.</span></div>`;
+  tips += `<div class="tip-item"><span class="tip-icon">✍️</span><span><strong>Use the Reframe tab</strong> to walk a real thought through the full examination process. It gets easier every time you do it.</span></div>`;
+  if (boost > 0) tips += `<div class="tip-item"><span class="tip-icon">💪</span><span><strong>Lean into your strengths.</strong> The patterns you already have — ${boostLabels[0]} — are your starting point, not just nice-to-haves.</span></div>`;
+  tips += `<div class="tip-item"><span class="tip-icon">📅</span><span><strong>Check in again in two weeks.</strong> What patterns still feel familiar? Which ones are you starting to catch in real time?</span></div>`;
+  document.getElementById('result-tips').innerHTML = tips;
+}
+
+function resetCheck() {
+  document.querySelectorAll('.check-item').forEach(i => i.classList.remove('checked'));
+  const btn = document.getElementById('check-submit-btn');
+  btn.disabled = true;
+  btn.style.opacity = '.5';
+  document.getElementById('check-form').style.display = 'block';
+  document.getElementById('result-panel').classList.remove('show');
+}
+
+/* ══════════════ REFRAME TOOL ══════════════ */
+function showReframe() {
+  const rf5 = document.getElementById('rf5').value.trim();
+  const rf1 = document.getElementById('rf1').value.trim();
+  if (!rf1) { alert("Please share the thought that's been affecting your mood (Step 1) to continue."); return; }
+
+  const output = document.getElementById('rf-output');
+  output.classList.add('show');
+  document.getElementById('reframe-card').style.display = 'none';
+
+  if (rf5) {
+    document.getElementById('rf-rebalanced').style.display = 'flex';
+    document.getElementById('rf-rebalanced-text').textContent = 'Your rebalanced thought is more accurate than the original — not because it ignores the difficulty, but because it includes more of what\'s true.';
+    document.getElementById('rf-balanced-display').textContent = rf5;
+  } else {
+    document.getElementById('rf-balanced-display').textContent = 'You didn\'t fill in Step 5 — and that\'s okay. Sometimes just naming the thought and separating the facts is enough for one session. Come back to the balanced version when you\'re ready.';
+  }
+  output.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+function resetReframe() {
+  ['rf1','rf2','rf3','rf4','rf5'].forEach(id => { document.getElementById(id).value = ''; });
+  document.getElementById('rf-output').classList.remove('show');
+  document.getElementById('reframe-card').style.display = 'block';
+  document.getElementById('reframe-card').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
