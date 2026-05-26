@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Single-Task Focus Practice | What To Do!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#F7F4ED;--navy:#182047;--blue:#4F5DAD;--blue-lt:#8BA4DC;--blue-bg:#edf1f8;--mint:#B4DACD;--mint-bg:#eaf4f0;--gold:#f4c95d;--text:#1e1e1e;--muted:#6b7280;--border:#e0ddd6;--white:#fff;--radius:12px;--shadow:0 2px 12px rgba(0,0,0,.08)}
+body{font-family:'Source Sans 3','Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center}
+.site-header{width:100%;background:#182047;color:white;padding:20px 24px;text-align:center;border-bottom:4px solid #B4DACD}
+.site-header .eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mint);margin-bottom:5px;font-weight:700}
+.site-header h1{font-size:clamp(1.35rem,4vw,1.85rem);font-weight:800;line-height:1.2}
+.screen{display:none;width:100%;max-width:720px;padding:24px 16px 80px;animation:fadeIn .3s ease}.screen.active{display:flex;flex-direction:column}@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.progress-wrap{display:flex;align-items:center;justify-content:center;margin:0 0 18px}.pdot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:.25s}.pdot.active{background:var(--blue);transform:scale(1.35)}.pdot.done{background:var(--mint)}.pline{width:24px;height:2px;background:var(--border)}.pline.done{background:var(--mint)}
+.card{background:var(--white);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow);margin-bottom:16px}.card h2,.card h3{color:var(--navy);font-weight:800;line-height:1.25;margin-bottom:10px}.card h2{font-size:1.32rem}.card h3{font-size:1.08rem}.card p{color:var(--muted);line-height:1.7;font-size:.96rem;margin-bottom:10px}.card p:last-child{margin-bottom:0}
+.notice-box{background:var(--mint-bg);border-left:4px solid var(--mint);border-radius:8px;padding:14px 16px;color:var(--text);font-size:.93rem;line-height:1.65;margin-bottom:16px}.focus-box{background:var(--blue-bg);border-left:4px solid var(--blue);border-radius:8px;padding:14px 16px;color:var(--navy);font-size:.94rem;line-height:1.7;margin:14px 0}.small-label{color:var(--muted);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin:12px 0 7px}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;font-size:.95rem;font-weight:800;transition:transform .15s,box-shadow .2s,opacity .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.12)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}.btn-primary{background:var(--navy);color:white}.btn-secondary{background:var(--blue-bg);color:var(--blue);border:1.5px solid var(--blue-lt)}.btn-full{width:100%}.back-btn{background:none;border:none;cursor:pointer;color:var(--muted);font-family:inherit;font-size:.88rem;display:inline-flex;align-items:center;gap:6px;padding:0;margin-bottom:18px}
+.choice-list,.check-list{display:flex;flex-direction:column;gap:8px;margin:12px 0}.choice,.check-chip{background:white;border:2px solid var(--border);border-radius:var(--radius);padding:13px 16px;cursor:pointer;font-family:inherit;font-size:.94rem;color:var(--text);text-align:left;display:flex;align-items:flex-start;gap:12px;line-height:1.45;transition:border-color .2s,background .2s}.choice:hover,.check-chip:hover{border-color:var(--blue-lt)}.choice.selected,.check-chip.selected{border-color:var(--blue);background:var(--blue-bg);color:var(--navy)}.dot,.cbox{width:18px;height:18px;border:2px solid var(--border);flex-shrink:0;margin-top:2px}.dot{border-radius:50%}.cbox{border-radius:4px;display:flex;align-items:center;justify-content:center}.choice.selected .dot,.check-chip.selected .cbox{background:var(--blue);border-color:var(--blue)}.check-chip.selected .cbox::after{content:'✓';color:white;font-size:.75rem;font-weight:800}
+input,textarea,select{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:11px 13px;font-family:inherit;font-size:.95rem;line-height:1.55;color:var(--text);background:white}textarea{min-height:84px;resize:vertical}input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue)}
+.timer-card{background:white;border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 22px;margin-bottom:16px;text-align:center}.timer-circle{width:160px;height:160px;border-radius:50%;margin:12px auto 16px;background:conic-gradient(var(--mint) 0deg,var(--blue-bg) 0deg);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 12px white;border:2px solid var(--border)}.timer-time{font-size:2.1rem;font-weight:800;color:var(--navy)}.timer-prompt{color:var(--muted);line-height:1.65;max-width:520px;margin:0 auto}.return-list{display:grid;grid-template-columns:1fr;gap:9px;margin-top:12px}.return-item{background:var(--bg);border-radius:10px;padding:12px 14px;text-align:left;color:var(--navy);font-weight:700;line-height:1.45}.script-card{background:white;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;border-top:4px solid var(--mint);margin-bottom:16px}.script-line{border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:12px;color:var(--navy);line-height:1.7;font-size:1rem}.script-line:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}.script-line span{display:block;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:3px}.complete-card{background:linear-gradient(135deg,var(--navy),#1e2d6e);color:white;border-radius:var(--radius);padding:34px 26px;box-shadow:var(--shadow);text-align:center;margin-bottom:16px}.complete-card h2{font-size:1.42rem;margin-bottom:10px}.complete-card p{color:rgba(255,255,255,.8);line-height:1.7}.footer-note{text-align:center;color:var(--muted);font-size:.75rem;line-height:1.6;padding:0 16px 24px}@media(max-width:520px){.btn{width:100%}.timer-circle{width:140px;height:140px}.timer-time{font-size:1.8rem}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="eyebrow">Focus</div>
+  <h1>Single-Task Focus Practice</h1>
+</header>
+
+<div class="screen active" id="screen-home">
+  <div class="progress-wrap"><div class="pdot active"></div><div class="pline"></div><div class="pdot"></div><div class="pline"></div><div class="pdot"></div><div class="pline"></div><div class="pdot"></div><div class="pline"></div><div class="pdot"></div></div>
+  <div class="card">
+    <h2>Your attention is one of the ways you show love.</h2>
+    <p>It is easy to be physically home but mentally somewhere else — scrolling, checking work, replaying a conversation, or half-listening while someone you care about is talking.</p>
+    <p>This practice helps you choose one meaningful moment, notice what pulls your focus away, and gently return your attention without shaming yourself.</p>
+  </div>
+  <div class="notice-box"><strong>The skill:</strong> Choose one thing. Notice the pull. Return to what matters. Repeat.</div>
+  <div class="btn-row"><button class="btn btn-primary btn-full" onclick="goTo('screen-moment')">Start the practice →</button></div>
+</div>
+
+<div class="screen" id="screen-moment">
+  <button class="back-btn" onclick="goTo('screen-home')">← Back</button>
+  <div class="progress-wrap"><div class="pdot done"></div><div class="pline done"></div><div class="pdot active"></div><div class="pline"></div><div class="pdot"></div><div class="pline"></div><div class="pdot"></div><div class="pline"></div><div class="pdot"></div></div>
+  <div class="card">
+    <h2>Choose one moment to be present for.</h2>
+    <p>Pick a real-life moment where your attention often gets split.</p>
+    <div class="choice-list" id="moment-list">
+      <button class="choice" onclick="selectOne('moment',this,'listening to my partner')"><span class="dot"></span>Listening to my partner</button>
+      <button class="choice" onclick="selectOne('moment',this,'bedtime or evening routines')"><span class="dot"></span>Bedtime or evening routines</button>
+      <button class="choice" onclick="selectOne('moment',this,'time together after the kids are settled')"><span class="dot"></span>Time together after the kids are settled</button>
+      <button class="choice" onclick="selectOne('moment',this,'dinner or a shared meal')"><span class="dot"></span>Dinner or a shared meal</button>
+      <button class="choice" onclick="selectOne('moment',this,'a conversation with someone I care about')"><span class="dot"></span>A conversation with someone I care about</button>
+    </div>
+    <div class="small-label">Or name your own moment</div>
+    <input id="customMoment" placeholder="Example: the first 10 minutes after I get home" oninput="setCustom('moment',this.value)">
+  </div>
+  <div class="btn-row"><button class="btn btn-primary btn-full" id="moment-next" onclick="goTo('screen-pull')" disabled>Next →</button></div>
+</div>
+
+<div class="screen" id="screen-pull">
+  <button class="back-btn" onclick="goTo('screen-moment')">← Back</button>
+  <div class="progress-wrap"><div class="pdot done"></div><div class="pline done"></div><div class="pdot done"></div><div class="pline done"></div><div class="pdot active"></div><div class="pline"></div><div class="pdot"></div><div class="pline"></div><div class="pdot"></div></div>
+  <div class="card">
+    <h2>Name what pulls your focus away.</h2>
+    <p>This is not about blame. It is about recognizing the hook before it runs the evening.</p>
+    <div class="check-list" id="pull-list">
+      <button class="check-chip" onclick="togglePull(this,'my phone')"><span class="cbox"></span>My phone</button>
+      <button class="check-chip" onclick="togglePull(this,'work emails or messages')"><span class="cbox"></span>Work emails or messages</button>
+      <button class="check-chip" onclick="togglePull(this,'replaying something from work')"><span class="cbox"></span>Replaying something from work</button>
+      <button class="check-chip" onclick="togglePull(this,'worry about what still needs to be done')"><span class="cbox"></span>Worry about what still needs to be done</button>
+      <button class="check-chip" onclick="togglePull(this,'boredom or restlessness')"><span class="cbox"></span>Boredom or restlessness</button>
+      <button class="check-chip" onclick="togglePull(this,'habit')"><span class="cbox"></span>Habit</button>
+    </div>
+    <div class="small-label">Add another pull if needed</div>
+    <input id="customPull" placeholder="Example: checking the news" oninput="updatePlan()">
+  </div>
+  <div class="btn-row"><button class="btn btn-primary btn-full" onclick="goTo('screen-plan')">Build my focus plan →</button></div>
+</div>
+
+<div class="screen" id="screen-plan">
+  <button class="back-btn" onclick="goTo('screen-pull')">← Back</button>
+  <div class="progress-wrap"><div class="pdot done"></div><div class="pline done"></div><div class="pdot done"></div><div class="pline done"></div><div class="pdot done"></div><div class="pline done"></div><div class="pdot active"></div><div class="pline"></div><div class="pdot"></div></div>
+  <div class="card">
+    <h2>Create a tiny focus commitment.</h2>
+    <p>Small is good. The goal is not perfect focus. The goal is returning your attention when it wanders.</p>
+    <div class="small-label">I will practice for</div>
+    <select id="minutes" onchange="updatePlan()">
+      <option value="2">2 minutes</option>
+      <option value="5" selected>5 minutes</option>
+      <option value="10">10 minutes</option>
+      <option value="15">15 minutes</option>
+    </select>
+    <div class="small-label">Phone or distraction boundary</div>
+    <select id="boundary" onchange="updatePlan()">
+      <option value="put my phone in another room">Put my phone in another room</option>
+      <option value="turn my phone face down">Turn my phone face down</option>
+      <option value="turn on Do Not Disturb">Turn on Do Not Disturb</option>
+      <option value="close my laptop and step away from work">Close my laptop and step away from work</option>
+      <option value="take one breath before responding">Take one breath before responding</option>
+    </select>
+    <div class="focus-box" id="planPreview"></div>
+  </div>
+  <div class="btn-row"><button class="btn btn-primary btn-full" onclick="startPractice()">Practice returning focus →</button></div>
+</div>
+
+<div class="screen" id="screen-practice">
+  <button class="back-btn" onclick="stopTimer();goTo('screen-plan')">← Back</button>
+  <div class="progress-wrap"><div class="pdot done"></div><div class="pline done"></div><div class="pdot done"></div><div class="pline done"></div><div class="pdot done"></div><div class="pline done"></div><div class="pdot done"></div><div class="pline done"></div><div class="pdot active"></div></div>
+  <div class="timer-card">
+    <h2 style="color:var(--navy);margin-bottom:8px">Return, again and again.</h2>
+    <div class="timer-circle" id="timerCircle"><div class="timer-time" id="timerTime">1:00</div></div>
+    <p class="timer-prompt" id="timerPrompt">For this short practice, imagine yourself in the moment you chose. When your attention wanders, use the return steps below.</p>
+    <div class="return-list">
+      <div class="return-item">1. Notice: “My attention drifted.”</div>
+      <div class="return-item">2. Name the pull: “That is work / phone / worry.”</div>
+      <div class="return-item">3. Return: look, listen, breathe, and come back to this moment.</div>
+    </div>
+    <div class="btn-row"><button class="btn btn-secondary" id="pauseBtn" onclick="toggleTimer()">Pause</button><button class="btn btn-primary" onclick="finishPractice()">I practiced returning →</button></div>
+  </div>
+</div>
+
+<div class="screen" id="screen-finish">
+  <div class="complete-card">
+    <h2>You practiced single-task focus.</h2>
+    <p>The win is not never getting distracted. The win is noticing the drift and coming back to what matters.</p>
+  </div>
+  <div class="script-card">
+    <div class="script-line"><span>My focus moment</span><div id="summaryMoment"></div></div>
+    <div class="script-line"><span>What pulls me away</span><div id="summaryPulls"></div></div>
+    <div class="script-line"><span>My plan</span><div id="summaryPlan"></div></div>
+    <div class="script-line"><span>Return phrase</span><div>Notice the pull. Name it. Return to what matters.</div></div>
+  </div>
+  <div class="card">
+    <h3>Try this tonight</h3>
+    <p>Pick one small window — the first five minutes after you get home, one bedtime task, or one conversation — and practice giving that moment your full attention.</p>
+  </div>
+  <div class="btn-row"><button class="btn btn-secondary btn-full" onclick="resetAll()">Start over</button></div>
+</div>
+
+<div class="footer-note">What To Do! — self-guided skill building for everyday life.</div>
+<script>
+const state={moment:'',pulls:[],timer:null,total:60,remaining:60,running:false};
+function goTo(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(id==='screen-plan')updatePlan();if(id==='screen-finish')renderSummary();}
+function selectOne(key,el,val){state[key]=val;document.querySelectorAll('#moment-list .choice').forEach(b=>b.classList.remove('selected'));el.classList.add('selected');document.getElementById('customMoment').value='';document.getElementById('moment-next').disabled=false;updatePlan();}
+function setCustom(key,val){state[key]=val.trim();document.querySelectorAll('#moment-list .choice').forEach(b=>b.classList.remove('selected'));document.getElementById('moment-next').disabled=!state[key];updatePlan();}
+function togglePull(el,val){el.classList.toggle('selected');if(state.pulls.includes(val)){state.pulls=state.pulls.filter(p=>p!==val)}else{state.pulls.push(val)}updatePlan();}
+function allPulls(){const custom=document.getElementById('customPull')?.value.trim();return [...state.pulls,...(custom?[custom]:[])];}
+function updatePlan(){const moment=state.moment||'the moment I chose';const pulls=allPulls();const minutes=document.getElementById('minutes')?.value||'5';const boundary=document.getElementById('boundary')?.value||'put my phone away';const text=`For ${minutes} minutes, I will focus on ${moment}. If I get pulled toward ${pulls.length?pulls.join(', '):'a distraction'}, I will notice it, name it, and return. Before I begin, I will ${boundary}.`;const box=document.getElementById('planPreview');if(box)box.textContent=text;}
+function startPractice(){state.total=60;state.remaining=60;goTo('screen-practice');document.getElementById('timerPrompt').textContent=`For the next minute, picture yourself practicing focus during ${state.moment||'the moment you chose'}. You are training the return, not chasing perfection.`;drawTimer();startTimer();}
+function drawTimer(){const t=state.remaining;const m=Math.floor(t/60);const s=String(t%60).padStart(2,'0');document.getElementById('timerTime').textContent=`${m}:${s}`;const deg=((state.total-state.remaining)/state.total)*360;document.getElementById('timerCircle').style.background=`conic-gradient(var(--mint) ${deg}deg,var(--blue-bg) ${deg}deg)`;}
+function startTimer(){stopTimer();state.running=true;document.getElementById('pauseBtn').textContent='Pause';state.timer=setInterval(()=>{state.remaining--;drawTimer();if(state.remaining<=0)finishPractice();},1000)}
+function stopTimer(){if(state.timer)clearInterval(state.timer);state.timer=null;state.running=false;}
+function toggleTimer(){if(state.running){stopTimer();document.getElementById('pauseBtn').textContent='Resume'}else{startTimer();}}
+function finishPractice(){stopTimer();goTo('screen-finish');}
+function renderSummary(){const pulls=allPulls();const minutes=document.getElementById('minutes')?.value||'5';const boundary=document.getElementById('boundary')?.value||'put my phone away';document.getElementById('summaryMoment').textContent=state.moment||'A meaningful moment at home';document.getElementById('summaryPulls').textContent=pulls.length?pulls.join(', '):'phone, work thoughts, or habit';document.getElementById('summaryPlan').textContent=`For ${minutes} minutes, I will ${boundary} and return my attention when it drifts.`;}
+function resetAll(){stopTimer();state.moment='';state.pulls=[];state.remaining=60;document.querySelectorAll('.selected').forEach(e=>e.classList.remove('selected'));document.querySelectorAll('input').forEach(i=>i.value='');document.getElementById('moment-next').disabled=true;goTo('screen-home');}
+updatePlan();
+</script>
+</body>
+</html>
