@@ -12,12 +12,15 @@
 </style>
 </head>
 <body>
-<div class="loading" id="loading"><div style="font-weight:900;color:var(--navy);font-size:1.25rem">What To Do!</div><div class="spin"></div><div style="color:var(--muted);font-size:.86rem">Loading skills…</div></div>
+<div class="loading hidden" id="loading"><div style="font-weight:900;color:var(--navy);font-size:1.25rem">What To Do!</div><div class="spin"></div><div style="color:var(--muted);font-size:.86rem">Loading skills…</div></div>
 <header class="site-header"><div class="eyebrow">Skills Hub</div><h1>The Skills Hub</h1><p>Find the right self-guided practice for the moment you are in. Filter by category, search by topic, and open any skill when you are ready to practice.</p></header>
 <main class="wrap">
   <section class="toolbar"><div class="search"><span>⌕</span><input id="search" placeholder="Search skills: focus, task, boundaries, guilt, listening..." oninput="render()"></div><div class="chips" id="chips"></div></section>
-  <div class="meta-row"><strong id="countLabel">0 skills</strong><span id="sourceLabel">Categories: Focus, Coping, Feelings, Connecting</span></div>
-  <section class="grid" id="grid"></section>
+  <div class="meta-row"><strong id="countLabel">Loading skills...</strong><span id="sourceLabel">Categories: Focus, Coping, Feelings, Connecting</span></div>
+  <section class="grid" id="grid"><article class="skill-card"><div class="card-top"><span class="cat Focus">Focus</span><span class="time">Practice</span></div><div class="card-body"><h2>Begin Again</h2><p class="desc">Practice noticing when your attention wanders and gently returning to one focus target without self-criticism.</p><div class="outcome"><strong>Outcome:</strong> Learn that distraction is not failure — the real skill is beginning again and coming back to what matters.</div></div><div class="card-actions"><a class="btn btn-primary" href="https://terri-spec.github.io/skills/Begin_Again_Focus_Practice.html" target="_blank">Practice Now</a></div></article>
+<article class="skill-card"><div class="card-top"><span class="cat Focus">Focus</span><span class="time">Practice</span></div><div class="card-body"><h2>Single-Task Focus Practice</h2><p class="desc">Practice staying present with one meaningful moment instead of splitting your attention.</p><div class="outcome"><strong>Outcome:</strong> Notice when your focus drifts and gently return your attention to what matters most.</div></div><div class="card-actions"><a class="btn btn-primary" href="https://terri-spec.github.io/skills/Single_Task_Focus_Practice.html" target="_blank">Practice Now</a></div></article>
+<article class="skill-card"><div class="card-top"><span class="cat Focus">Focus</span><span class="time">Practice</span></div><div class="card-body"><h2>Start the Task</h2><p class="desc">Break through task-starting paralysis by shrinking the task and taking one tiny first step.</p><div class="outcome"><strong>Outcome:</strong> Lower overwhelm, stop the avoidance loop, and begin without waiting for perfect motivation.</div></div><div class="card-actions"><a class="btn btn-primary" href="https://terri-spec.github.io/skills/Start_The_Task_Focus_Practice.html" target="_blank">Practice Now</a></div></article>
+<article class="skill-card"><div class="card-top"><span class="cat Coping">Coping</span><span class="time">Practice</span></div><div class="card-body"><h2>Ride the Wave</h2><p class="desc">Practice riding out a strong urge without reacting or making things worse.</p><div class="outcome"><strong>Outcome:</strong> Pause, let the urge pass, and choose a steadier next step.</div></div><div class="card-actions"><a class="btn btn-primary" href="https://terri-spec.github.io/skills/Ride_The_Wave_Coping_Practice.html" target="_blank">Practice Now</a></div></article></section>
   <div class="empty" id="empty"><strong>No matching skills yet.</strong><br>Try another search or category.</div>
 </main>
 <div class="drawer" id="drawer"><div class="practice-modal"><div class="modal-head"><div><div class="modal-title" id="modalTitle">Skill Practice</div><div class="modal-cat" id="modalCat"></div></div><div class="modal-actions"><a id="openNew" href="#" target="_blank">Open New Tab</a><button onclick="closePractice()">Close</button></div></div><iframe class="practice-frame" id="frame" title="Skill practice"></iframe></div></div>
@@ -35,18 +38,26 @@ const FALLBACK_SKILLS=[
 ];
 let skills=FALLBACK_SKILLS.map(cleanSkill),activeCat='All';
 let currentUserTiers=['Free'];
-const UPGRADE_URL='https://www.whattodo.coach/pricing-plans';
+const UPGRADE_URL='https://www.whattodo.coach/pricing-plans#Subscriptions';
 const cats=['All','Focus','Coping','Feelings','Connecting'];
 function normalizeCat(c){return (c||'Focus').replace(/\s+/g,'')}
 function getUrl(s){return s.htmlUrl||s.url||s.googleFile||'#'}
 function cleanSkill(s,i){return{_id:s._id||s.id||`skill-${i}`,name:s.name||'Untitled Skill',category:s.category||'Focus',description:s.description||'',desiredOutcome:s.desiredOutcome||s.outcome||'',htmlUrl:s.htmlUrl||s.url||s.googleFile||'',isPublished:s.isPublished!==false,displayOrder:s.displayOrder||999,timeEstimate:s.timeEstimate||'Practice',eligibleSubscriberTier:s.eligibleSubscriberTier||s.tier||s.requiredTier||['Free']}}
 function renderChips(){document.getElementById('chips').innerHTML=cats.map(c=>`<button class="chip ${activeCat===c?'active':''}" onclick="activeCat='${c}';render()">${c}</button>`).join('')}
+function tierName(x){
+  if(!x) return '';
+  if(typeof x==='string') return x;
+  return x.name || x.title || x.title_fld || x.label || (x.data && (x.data.name || x.data.title || x.data.title_fld || x.data.label)) || x._id || '';
+}
 function tiersFor(s){
   const t=s.eligibleSubscriberTier;
   if(!t) return ['Free'];
-  if(Array.isArray(t)) return t.map(x=>typeof x==='string'?x:(x.name||x.title||x._id||'')).filter(Boolean);
-  if(typeof t==='string') return [t];
-  return [t.name||t.title||t._id||'Free'];
+  if(Array.isArray(t)) {
+    const names=t.map(tierName).filter(Boolean);
+    return names.length ? names : ['Free'];
+  }
+  const one=tierName(t);
+  return one ? [one] : ['Free'];
 }
 function hasAccess(s){
   const allowed=tiersFor(s);
